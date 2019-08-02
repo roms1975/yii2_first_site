@@ -23,6 +23,7 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+        'js/sales_funnel/sales_funnel.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
