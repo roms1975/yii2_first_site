@@ -7,6 +7,8 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'layout' => 'optpolymer',
+//    'defaultRoute' => 'optpolymer',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -43,14 +45,21 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+		'/'  => 'optpolymer/index',
+		'/about.html'  => 'optpolymer/about',
+		'/paneli_pvh.html'  => 'optpolymer/pvh',
+		'/mdf_hdf_paneli.html'  => 'optpolymer/mdf',
+		'/materiali_dlya_narugnoy_otdelki.html'  => 'optpolymer/fasadka',
+		'/accessuar.html'  => 'optpolymer/accesuar',
+                'pattern' => 'optpolymer',
+                'route' => 'optpolymer/index',
+                'suffix' => '.html',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];

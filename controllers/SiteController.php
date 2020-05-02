@@ -61,6 +61,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+	print_r($this);
         return $this->render('index');
     }
 
@@ -125,4 +126,10 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    
+    public function actionSay($message = 'Привет')
+    {
+        return $this->render('say', ['message' => $message]);
+    }
+
 }
