@@ -1,5 +1,9 @@
 $(document).ready(function() {
-    $(".fancy").fancybox();
+    $(".fancy").fancybox({
+		buttons: [
+		"close"
+		],
+	});
     
     if($('.scroll-to-top').length < 1) {
         var _isScrolling = false;
@@ -41,6 +45,7 @@ $(document).ready(function() {
     let snd_btn = frst_form.find('.snd-btn');
     snd_btn.addClass('disabled');
     let required_fields = frst_form.find('.required');
+	
     function check_fields() {
         $.each(required_fields, function(key, val) {
         if ($(val).val() == "") {
@@ -64,11 +69,12 @@ $(document).ready(function() {
             return false;
         }
     }
-    required_fields.live('change keyup click', function() {
+	
+    required_fields.on('change keyup click', function() {
         check_fields();
     });
     
-    snd_btn.live('click', function() {
+    snd_btn.on('click', function() {
         if (check_fields()) {
             $.ajax({
                 type: 'POST',
@@ -80,5 +86,17 @@ $(document).ready(function() {
             });
         }
     });
+	
+	$('.enter').on('click', function() {
+		$(this).closest('.top-menu').toggleClass('show');
+	});
+	
+	$('#login .fa-times').on('click', function() {
+		$(this).closest('.top-menu').removeClass('show');
+	});
         
+	$('.logout').on('click', function() {
+		$(this).closest('.log-out').submit();
+	});
+	
  });

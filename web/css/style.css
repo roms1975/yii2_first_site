@@ -83,6 +83,14 @@ body #fancybox-close {
 	background: -webkit-linear-gradient(left, #61a5ed 0%,#415da6 100%);
 	background: linear-gradient(to right, #61a5ed 0%,#415da6 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#61a5ed', endColorstr='#415da6',GradientType=1 );
+  position: -webkit-sticky;
+	position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.top-menu .row {
+  position: relative;
 }
 
 .first {
@@ -144,6 +152,10 @@ body #fancybox-close {
     padding-bottom: 15px;
 }
 
+.top-memu-list {
+  display: inline-block;
+}
+
 .top-memu-list a {
 	font-family: 'Play';
 	font-size: 14px;
@@ -176,6 +188,57 @@ body #fancybox-close {
 //    text-decoration: none;
     font-size: 16px;
     color: white;
+}
+
+.enter {
+  padding: 15px 50px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+.enter:hover {
+	color: white;
+}
+
+.enter .login {
+  top: 11px;
+  margin-left: 8px;
+  position: absolute;
+  font-size: 30px;
+  color: white;
+}
+
+#login {
+  display: none;
+  position: absolute;
+  top: 51px;
+  right: 0;
+  background: #415da6;
+  padding: 20px;
+}
+
+.show #login {
+	display: block; 
+}
+
+#login input {
+	margin: 10px 0;
+}
+
+#login a {
+	color: white;
+  margin-left: 8px;
+}
+
+#login .fa-times {
+  color: white;
+  padding: 10px 0 20px;
+  cursor: pointer;
+}
+
+.log-out {
+  display: inline;
 }
 
 .second-window {

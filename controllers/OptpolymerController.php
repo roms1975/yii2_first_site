@@ -7,6 +7,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
+use app\models\RegisterForm;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
@@ -91,6 +92,7 @@ class OptpolymerController extends Controller
      */
     public function actionLogin()
     {
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -101,10 +103,30 @@ class OptpolymerController extends Controller
         }
 
         $model->password = '';
+
         return $this->render('login', [
             'model' => $model,
         ]);
+
     }
+
+	public function actionRegister() {
+
+	    if (!Yii::$app->user->isGuest) {
+        	    return $this->goHome();
+        }
+
+		$model = new RegisterForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->register()) {
+            return $this->goBack();
+        }
+
+        return $this->render('register', [
+            'model' => $model,
+        ]);
+
+	}
 
     /**
      * Logout action.
