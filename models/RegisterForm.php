@@ -29,7 +29,8 @@ class RegisterForm extends Model
             // username and password are both required
             [['email', 'password', 'pass_retype'], 'required'],
             // password is validated by validatePassword()
-            //[['password', 'pass_retype'], 'validatePassword'],
+            [['email'], 'validateEmail'],
+            [['password'], 'validatePassword'],
         ];
     }
 
@@ -51,6 +52,15 @@ class RegisterForm extends Model
  //       }
     }
     
+    public function validateEmail($attribute, $params)
+    {
+        if (!$this->hasErrors()) {
+            if (!preg_match("/^[a-zA-Z0-9_\.\-]+@/", $this->email))
+                $this->addError($attribute, 'Не правильно введен e-mail');
+        }
+        
+    }
+    
     public function attributeLabels() {
         return [
             'email' => 'E-mail',
@@ -64,18 +74,23 @@ class RegisterForm extends Model
      * @return bool whether the user is logged in successfully
      */
     public function register() {
+        $email = $this->email;
         $opt = new Optusers;
-
-        if ($this->validate() && !$opt->email_exist($this->email)) {
+        if ($opt->find()->where(['email' => $email])->one()) {
+            $this->addError('email', 'Такой email уже зарегистрирован');
+            return false;
+        }
+        
+        if ($this->validate()) {
 //            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
             $opt->email = $this->email;
-            $opt->pass = $this->password;
+            $opt->pass = Yii::$app->getSecurity()->generatePasswordHash($this->password);
             $opt->save();
             
             return true;
         }
         
-        //$this->addError($attribute, 'Такой email уже зарегистрирован');
+//        $this->addError($attribute, 'Такой email уже зарегистрирован');
         return false;
     }
 

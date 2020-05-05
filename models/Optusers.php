@@ -20,32 +20,5 @@ class Optusers extends \yii\db\ActiveRecord
     {
         return 'users';
     }
-/*
-    public function rules()
-    {
-        return [
-            [['code', 'name'], 'required'],
-            [['population'], 'integer'],
-            [['code'], 'string', 'max' => 2],
-            [['name'], 'string', 'max' => 52],
-            [['code'], 'unique'],
-        ];
-    }
 
-    public function attributeLabels()
-    {
-        return [
-            'code' => 'Code',
-            'name' => 'Name',
-            'population' => 'Population',
-        ];
-    }
-*/
-
-    public function email_exist($email) {
-        if ($this->find()->where(['email' => $email])->one())
-            return true;
-       
-        return false;
-    }
 }

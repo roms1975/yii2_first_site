@@ -92,13 +92,13 @@ class OptpolymerController extends Controller
      */
     public function actionLogin()
     {
-
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            
             return $this->goBack();
         }
 
@@ -167,10 +167,4 @@ class OptpolymerController extends Controller
     {
         return $this->render('about');
     }
-    
-    public function actionSay($message = 'Привет')
-    {
-        return $this->render('say', ['message' => $message]);
-    }
-
 }

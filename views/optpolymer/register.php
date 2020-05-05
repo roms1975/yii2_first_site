@@ -28,9 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 
                 <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
 
-                <?= $form->field($model, 'password')->textInput() ?>
+                <?= $form->field($model, 'password')->passwordInput() ?>
 
-                <?= $form->field($model, 'pass_retype')->textInput() ?>
+                <?= $form->field($model, 'pass_retype')->passwordInput() ?>
 
                 <div class="form-group">
                     <div>

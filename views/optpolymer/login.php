@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="container">
     <div class="row statiya">
-        <div class="col-sm-12">
+        <div class="col-sm-6 col-sm-offset-3">
         <!--div class="site-login"-->
             <h1>Вход для зарегистрированных пользователей</h1>
 
@@ -21,15 +21,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'id' => 'login-form',
                 'layout' => 'horizontal',
                 'fieldConfig' => [
-                    'template' => "<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-                    'labelOptions' => ['class' => 'col-lg-1 control-label'],
+                    'template' => "{label}\n<div>{input}</div>\n<div>{error}</div>",
+                    'labelOptions' => ['class' => 'control-label'],
                 ],
             ]); ?>
                 
-                <label>Логин:</label>
                 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
-                <label>Пароль:</label>
                 <?= $form->field($model, 'password')->passwordInput() ?>
 				<a href="/register">Регистрация</a>
                 <div class="form-group">
