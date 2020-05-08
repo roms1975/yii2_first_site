@@ -344,6 +344,22 @@ footer .container {
     margin-bottom: 5px;
 }
 
+.lk-menu {
+  background: #e6e6e6;
+  padding: 0;
+  margin: 0;
+}
+
+.lk-menu li {
+  list-style-type: none;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.lk-menu li:hover {
+  background: #cccccc;
+}
+  
 footer ul, .img-list {
     padding-left: 0;
 }

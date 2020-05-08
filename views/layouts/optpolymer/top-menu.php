@@ -26,9 +26,9 @@
                         
 
             echo(
-                Html::beginForm(['/logout'], 'post', ['class' => 'log-out']) .
+                Html::beginForm(['/lk'], 'post', ['class' => 'log-out']) .
                 '<a class="enter pull-right logout">' .
-                    'Выход (' . Yii::$app->user->identity->username . ')' .
+                    'Личный кабинет (' . Yii::$app->user->identity->username . ')' .
                 '</a>' .
                 Html::endForm()
             );

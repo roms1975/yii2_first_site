@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\RegisterForm;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\PersonForm;
 
 class OptpolymerController extends Controller
 {
@@ -66,24 +67,42 @@ class OptpolymerController extends Controller
 
     public function actionPvh() {
         return $this->render('paneli_pvh');
-
     }
 
     public function actionMdf() {
         return $this->render('mdf_hdf');
-
     }
 
     public function actionFasadka() {
         return $this->render('fasadka');
-
     }
 
     public function actionAccesuar() {
         return $this->render('accessuar');
-
     }
     
+    public function actionLk() {
+	if (Yii::$app->user->isGuest)
+		return $this->goHome();
+
+        return $this->render('lk');
+    }
+    
+    public function actionShowperson() {
+	if (Yii::$app->user->isGuest)
+		return $this->goHome();
+
+	$model = new PersonForm();
+	if ($model->load(Yii::$app->request->post()) && $model->save_person()) {
+		return $this->redirect(['showperson']);
+        }
+        
+        $model->show_person();
+
+        return $this->render('person', [
+            'model' => $model,
+        ]);
+    }
 
     /**
      * Login action.
@@ -99,7 +118,8 @@ class OptpolymerController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             
-            return $this->goBack();
+            //return $this->goBack();
+		return $this->redirect(['lk']);
         }
 
         $model->password = '';
@@ -112,19 +132,19 @@ class OptpolymerController extends Controller
 
 	public function actionRegister() {
 
-	    if (!Yii::$app->user->isGuest) {
-        	    return $this->goHome();
-        }
+		if (!Yii::$app->user->isGuest) {
+			return $this->goHome();
+		}
 
 		$model = new RegisterForm();
 
-        if ($model->load(Yii::$app->request->post()) && $model->register()) {
-            return $this->goBack();
-        }
+		if ($model->load(Yii::$app->request->post()) && $model->register()) {
+			return $this->goBack();
+		}
 
-        return $this->render('register', [
-            'model' => $model,
-        ]);
+		return $this->render('register', [
+			'model' => $model,
+		]);
 
 	}
 
