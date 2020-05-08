@@ -352,11 +352,19 @@ footer .container {
 
 .lk-menu li {
   list-style-type: none;
+}
+
+.lk-menu li a {
+  display: block;
   padding: 15px;
   cursor: pointer;
 }
 
-.lk-menu li:hover {
+.lk-menu li.active a {
+  background: #f2f2f2;
+}
+
+.lk-menu li a:hover {
   background: #cccccc;
 }
   
