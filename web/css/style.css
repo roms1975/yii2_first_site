@@ -25,7 +25,7 @@ h1 {
 }
 
 .first-window {
-    background: url('/images/first-bg-1.jpg') no-repeat center;
+    background: url('/images/first-bg-1.jpg') no-repeat center bottom;
     background-size: cover;
 //    min-height: 100%;
     background-attachment: fixed
@@ -430,6 +430,16 @@ footer li a:hover {
 
 .warn {
 	color: red;
+}
+
+.orders {
+  width: 100%;
+}
+
+.orders th, .orders td {
+  padding: 5px 10px;
+  border: solid 1px gray;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {

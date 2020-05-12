@@ -63,6 +63,7 @@ $config = [
 		'/logout'  => 'optpolymer/logout',
 		'/register'  => 'optpolymer/register',
 		'/lk'  => 'optpolymer/lk',
+		'/orders'  => 'optpolymer/orders',
 		'/showperson'  => 'optpolymer/showperson',
                 'pattern' => 'optpolymer',
                 'route' => 'optpolymer/index',
