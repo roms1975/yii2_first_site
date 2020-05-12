@@ -2,7 +2,6 @@
 
 /* @var $this yii\web\View */
 
-use yii\widgets\Menu;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
@@ -14,24 +13,34 @@ $this->title = 'Заказы';
     <div class="row statiya">
         <h1><?= $this->title ?></h1>
 	<div class="col-md-3 col-sm-4">
-		<?php
-			echo Menu::widget([
-				'items' => [
-					['label' => 'Персональные данные', 'url' => ['optpolymer/showperson'] ],
-					['label' => 'Заказы', 'url' => ['/orders']],
-					['label' => 'Выход', 'url' => ['logout']],
-				],
-				'options' => [
-					'class' => 'lk-menu',
-				],
-				'activeCssClass'=>'active',
-			]);
-		?>
+		<?= $this->render("lk_menu"); ?>
 	</div>
 	<div class="col-md-9 col-sm-8">
-		<?php
-			if (!empty($orders))
-				print_r($orders);
+		<?php 
+			$list = "";
+			foreach ($model as $row) {
+				$created = $row->processed;
+				$list .= (
+					"<tr>" .
+						"<td>" . $row->id . "</td>" .
+						"<td>" . $row->created . "</td>" .
+						"<td>" . (($row->processed == '0000-00-00 00:00:00') ? '' : $row->processed ) . "</td>" .
+						"<td></td>" .
+					"</tr>"
+				);
+			}
+			
+			echo (
+				"<table class='orders'>" . 
+					"<tr>" .
+						"<th>Номер заказа</th>" .
+						"<th>Дата создания</th>" .
+						"<th>Дата проверки</th>" .
+						"<th>Менеджер</th>" .
+					"</tr>" .
+					$list . 
+				"</table>"
+			);
 		?>
 	</div>
     </div>
