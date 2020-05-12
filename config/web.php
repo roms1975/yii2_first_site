@@ -25,7 +25,7 @@ $config = [
         ],
         'user' => [
             'identityClass' => 'app\models\User_opt',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -52,6 +52,7 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+			'enableStrictParsing' => true,
             'rules' => [
 		'/'  => 'optpolymer/index',
 		'/about.html'  => 'optpolymer/about',
@@ -65,7 +66,20 @@ $config = [
 		'/lk'  => 'optpolymer/lk',
 		'/orders'  => 'optpolymer/orders',
 		'/showperson'  => 'optpolymer/showperson',
-                'pattern' => 'optpolymer',
+/*
+				'/'  => 'optpolymer/index',
+				'/about.html'  => 'optpolymer/about',
+				'/paneli_pvh.html'  => 'optpolymer/pvh',
+				'/mdf_hdf_paneli.html'  => 'optpolymer/mdf',
+				'/materiali_dlya_narugnoy_otdelki.html'  => 'optpolymer/fasadka',
+				'/accessuar.html'  => 'optpolymer/accesuar',
+				'/login'  => 'optpolymer/login',
+				'/logout'  => 'optpolymer/logout',
+				'/register'  => 'optpolymer/register',
+				'/lk'  => 'optpolymer/lk',
+				'/showperson'  => 'optpolymer/showperson',
+				'/orders'  => 'optpolymer/orders',
+*/                'pattern' => 'optpolymer',
                 'route' => 'optpolymer/index',
                 'suffix' => '.html',
             ],
