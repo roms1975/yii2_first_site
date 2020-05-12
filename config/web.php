@@ -65,6 +65,7 @@ $config = [
 				'/register'  => 'optpolymer/register',
 				'/lk'  => 'optpolymer/lk',
 				'/showperson'  => 'optpolymer/showperson',
+				'/orders'  => 'optpolymer/orders',
                 'pattern' => 'optpolymer',
                 'route' => 'optpolymer/index',
                 'suffix' => '.html',

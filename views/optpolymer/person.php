@@ -18,7 +18,7 @@ $this->title = 'Личный кабинет партнера';
 			echo Menu::widget([
 				'items' => [
 					['label' => 'Персональные данные', 'url' => ['optpolymer/showperson'] ],
-					['label' => 'Заказы', 'url' => ['/']],
+					['label' => 'Заказы', 'url' => ['/orders']],
 					['label' => 'Выход', 'url' => ['logout']],
 				],
 				'options' => [
