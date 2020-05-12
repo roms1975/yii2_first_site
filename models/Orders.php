@@ -10,5 +10,11 @@ class Orders extends \yii\db\ActiveRecord
     {
         return 'orders';
     }
-
+	
+	public function getOrders() {
+		$id = Yii::$app->user->getId();
+		$data = self::find()->where(['person' => $id])->all();
+		
+		return $data;
+	}
 }
