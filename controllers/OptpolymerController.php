@@ -11,7 +11,8 @@ use app\models\RegisterForm;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\PersonForm;
-use app\models\OrdersForm;
+use app\models\Orders;
+
 
 class OptpolymerController extends Controller
 {
@@ -188,11 +189,10 @@ class OptpolymerController extends Controller
     }
 	
 	public function actionOrders() {
-		$model = new OrdersForm();
-		if ($orders = $model->get_orders()) {
-			return $this->render(['orders' => $orders]);
-		}
-		
-        return $this->render('orders');
+		$model = Orders::getOrders();
+		return $this->render('orders', [
+			'model' => $model
+		]);
+
 	}
 }
