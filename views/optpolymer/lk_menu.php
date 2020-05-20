@@ -4,8 +4,9 @@
 	echo Menu::widget([
 		'items' => [
 			['label' => 'Персональные данные', 'url' => ['optpolymer/showperson'] ],
-			['label' => 'Заказы', 'url' => ['optpolymer/orders']],
-			['label' => 'Выход', 'url' => ['logout']],
+			['label' => 'Заказы', 'url' => ['orders/index']],
+			['label' => 'Создать заказ', 'url' => ['orders/create']],
+			['label' => 'Выход', 'url' => ['/logout']],
 		],
 		'options' => [
 			'class' => 'lk-menu',

@@ -64,8 +64,10 @@ $config = [
 		'/logout'  => 'optpolymer/logout',
 		'/register'  => 'optpolymer/register',
 		'/lk'  => 'optpolymer/lk',
-		'/orders'  => 'optpolymer/orders',
-		'/showperson'  => 'optpolymer/showperson',
+		'/lk/orders'  => 'orders/index',
+		'/lk/orders/create'  => 'orders/create',
+		'/lk/orders/chekout'  => 'orders/chekout',
+		'/lk/showperson'  => 'optpolymer/showperson',
 /*
 				'/'  => 'optpolymer/index',
 				'/about.html'  => 'optpolymer/about',

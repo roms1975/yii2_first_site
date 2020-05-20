@@ -432,14 +432,40 @@ footer li a:hover {
 	color: red;
 }
 
-.orders {
+.orders, .offers {
   width: 100%;
+  margin-bottom: 15px;
 }
 
-.orders th, .orders td {
+.orders th, .orders td,
+.offers th, .offers td {
   padding: 5px 10px;
   border: solid 1px gray;
   text-align: center;
+}
+
+.offers td:first-child {
+  text-align: left;
+}
+
+.offers td input {
+  max-width: 75px;
+  padding: 0;
+  border: none;
+  text-align: center;
+}
+
+.cat-list .cat {
+  margin: 0 15px 15px 0;
+}
+
+.cat-list .btn-primary.active {
+  background-color: #d7e6f4;
+  color: #285e8e;
+}
+
+.added.add {
+  background-color: #ffe7e7;
 }
 
 @media screen and (max-width: 768px) {

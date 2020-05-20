@@ -70,6 +70,41 @@ $(document).ready(function() {
         }
     }
 	
+	function add_offer(obj) {
+		let row = obj.closest('tr');
+		let id = row.data('id');
+		let max_td = row.find('.max-count');
+		let max_count = Number(max_td.data('count'));
+		new_txt = (Number(obj.val()) > max_count) ? max_count : obj.val();
+		max_td.text(max_count - Number(new_txt));
+		if (new_txt == '0')
+			new_txt = '';
+		
+		let prnt = obj.closest('.added');
+		prnt.html(new_txt);
+		if (new_txt == "") {
+			prnt.removeClass("add");
+		} else {
+			prnt.addClass("add");
+		}
+		
+		let offers = $.cookie('order');
+		let offers_arr = {};
+		if ((offers == undefined)) {
+			 if (new_txt != '') 
+				offers_arr[id] = {'count': new_txt};
+		} else {
+			offers_arr = JSON.parse(offers);
+			if (new_txt == '') {
+				delete offers_arr[id]; 
+			} else {
+				offers_arr[id] = {'count': new_txt};
+			}
+		}
+		
+		$.cookie('order', JSON.stringify(offers_arr), { path: '/' });
+	}
+	
     required_fields.on('change keyup click', function() {
         check_fields();
     });
@@ -90,13 +125,38 @@ $(document).ready(function() {
 	$('.enter').on('click', function() {
 		$(this).closest('.top-menu').toggleClass('show');
 	});
-	
+
 	$('#login .fa-times').on('click', function() {
 		$(this).closest('.top-menu').removeClass('show');
 	});
-        
+
 	$('.logout').on('click', function() {
 		$(this).closest('.log-out').submit();
+	});
+	
+	$('.added').on('click', function() {
+		if ($(this).find('input').length > 0)
+			return;
+		
+		let txt = $(this).text();
+		let inp = $('<input type="text" value="' + txt + '" />');
+		$(this).html(inp);
+		inp.focus();
+
+		inp.on('keyup', function(e) {
+			if (e.which == 13) {
+				add_offer($(this));
+				return true;
+			}
+		});
+		
+		inp.on('keyup', function() {
+			$(this).val($(this).val().replace(/\D/, ''));
+		});
+		
+		inp.on('blur', function() {
+			add_offer($(this));
+		});
 	});
 	
  });

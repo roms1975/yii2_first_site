@@ -30,6 +30,7 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/jquery.fancybox.min.js',
         'js/main.js',
+		'js/jquery.cookie.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
