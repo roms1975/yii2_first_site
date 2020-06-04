@@ -6,7 +6,7 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-//    'bootstrap' => ['log'],
+    'bootstrap' => ['log'],
     'layout' => 'optpolymer',
     'language' => 'ru-RU',
 //    'layout' => 'main',
@@ -37,7 +37,7 @@ $config = [
             // for the mailer to send real emails.
             'useFileTransport' => true,
         ],
-/*
+
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -47,27 +47,27 @@ $config = [
                 ],
             ],
         ],
-*/
+
         'db' => $db,
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
 			'enableStrictParsing' => true,
             'rules' => [
-		'/'  => 'optpolymer/index',
-		'/about.html'  => 'optpolymer/about',
-		'/paneli_pvh.html'  => 'optpolymer/pvh',
-		'/mdf_hdf_paneli.html'  => 'optpolymer/mdf',
-		'/materiali_dlya_narugnoy_otdelki.html'  => 'optpolymer/fasadka',
-		'/accessuar.html'  => 'optpolymer/accesuar',
-		'/login'  => 'optpolymer/login',
-		'/logout'  => 'optpolymer/logout',
-		'/register'  => 'optpolymer/register',
-		'/lk'  => 'optpolymer/lk',
-		'/lk/orders'  => 'orders/index',
-		'/lk/orders/create'  => 'orders/create',
-		'/lk/orders/chekout'  => 'orders/chekout',
-		'/lk/showperson'  => 'optpolymer/showperson',
+				'/'  => 'optpolymer/index',
+				'/about.html'  => 'optpolymer/about',
+				'/paneli_pvh.html'  => 'optpolymer/pvh',
+				'/mdf_hdf_paneli.html'  => 'optpolymer/mdf',
+				'/materiali_dlya_narugnoy_otdelki.html'  => 'optpolymer/fasadka',
+				'/accessuar.html'  => 'optpolymer/accesuar',
+				'/login'  => 'optpolymer/login',
+				'/logout'  => 'optpolymer/logout',
+				'/register'  => 'optpolymer/register',
+				'/lk'  => 'optpolymer/lk',
+				'/lk/orders'  => 'orders/index',
+				'/lk/orders/create'  => 'orders/create',
+				'/lk/orders/chekout'  => 'orders/chekout',
+				'/lk/showperson'  => 'optpolymer/showperson',
 /*
 				'/'  => 'optpolymer/index',
 				'/about.html'  => 'optpolymer/about',
@@ -96,7 +96,7 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        'allowedIPs' => ['127.0.0.1', '::1', '192.168.88.*'],
+        'allowedIPs' => ['127.0.0.1', '::1', '192.168.1.*'],
     ];
 
     $config['bootstrap'][] = 'gii';

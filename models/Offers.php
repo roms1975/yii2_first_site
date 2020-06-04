@@ -20,4 +20,15 @@ class Offers extends \yii\db\ActiveRecord
 
 		return $data;
 	}
+	
+	public function getOffersById($offers) {
+		$data = array();
+		$result = self::find()->where(['id' => $offers])->all();
+		foreach ($result as $row) {
+			$data[$row->id] = $row->name;
+		}
+		
+		return $data;
+	}
+	
 }

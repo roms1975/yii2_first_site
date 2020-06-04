@@ -109,6 +109,13 @@ class OrdersController extends Controller
 	}
 	
 	public function actionChekout() {
-		return $this->render('chechout');
+		$order = isset($_COOKIE['order']) ? $_COOKIE['order'] : "";
+		$offers = json_decode($order, true);
+		$data = Offers::getOffersById(array_keys($offers));
+		//error_log(print_r($offers, true), 3, "/home/roman/www/roms.log");
+		
+		return $this->render('chechout',[
+			'model' => $data
+		]);
 	}
 }
